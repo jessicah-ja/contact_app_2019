@@ -1,10 +1,12 @@
 import React from 'react';
 import ContactInfo from './ContactInfo';
+import ContactDetails from './ContactDetails';
 
 export default class Contact extends React.Component{
     constructor(props) {  //constructor를 쓸때는 super를 같이 써줘야함. //state 의 초기 값을 설정 할 때는 constructor(생성자) 메소드에서 this.state= { } 를 통하여 설정
         super(props);
         this.state = {
+            selectedKey: -1,
             keyword: '',
             contactData: [{
                 name: 'Abet',
@@ -21,7 +23,7 @@ export default class Contact extends React.Component{
             }]
         };
         this.handleChange = this.handleChange.bind(this); //메소드를 만들어줄땐 this와 binding
-
+        this.handleClick = this.handleClick.bind(this);
     }
 
     handleChange(e) {
@@ -30,17 +32,27 @@ export default class Contact extends React.Component{
         });
     }
 
+    handleClick(key) {
+        this.setState({
+            selectedKey: key
+        });
+       
+    }
+
     render() {
         const mapToComponents = (data) => {
             data.sort();
             data = data.filter(
                 (contact) => {
                     return contact.name.toLowerCase()
-                    .indexOf(this.state.keyword.toLowerCase()) > -1;
+                        .indexOf(this.state.keyword.toLowerCase()) > -1;
                 }
             )
             return data.map((contact, i) => {
-                return (<ContactInfo contact={contact} key={i}/>);
+                return (<ContactInfo 
+                            contact={contact} 
+                            key={i}
+                            onClick={() => this.handleClick(i)}/>);  
             });
         }; //render
 
@@ -54,6 +66,10 @@ export default class Contact extends React.Component{
                     onChange={this.handleChange}
                 />
                 <div>{mapToComponents(this.state.contactData)}</div>
+                <ContactDetails 
+                    isSelected={this.state.selectedKey !== -1}
+                    contact={this.state.contactData[this.state.selectedKey]}
+                />
             </div>
         );
     }
