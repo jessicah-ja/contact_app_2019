@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/contact_app_2019/static/js/main.c1e794ec.chunk.js",
+    "main.js.map": "/contact_app_2019/static/js/main.c1e794ec.chunk.js.map",
+    "runtime-main.js": "/contact_app_2019/static/js/runtime-main.5f13d1b9.js",
+    "runtime-main.js.map": "/contact_app_2019/static/js/runtime-main.5f13d1b9.js.map",
+    "static/js/2.104cf547.chunk.js": "/contact_app_2019/static/js/2.104cf547.chunk.js",
+    "static/js/2.104cf547.chunk.js.map": "/contact_app_2019/static/js/2.104cf547.chunk.js.map",
+    "index.html": "/contact_app_2019/index.html",
+    "precache-manifest.d36e5793b2463e6fc69fd91fb8c737dd.js": "/contact_app_2019/precache-manifest.d36e5793b2463e6fc69fd91fb8c737dd.js",
+    "service-worker.js": "/contact_app_2019/service-worker.js"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5f13d1b9.js",
+    "static/js/2.104cf547.chunk.js",
+    "static/js/main.c1e794ec.chunk.js"
+  ]
+}
